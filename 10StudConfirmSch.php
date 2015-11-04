@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION["appTime"] = $_POST["appTime"]; // radio button selection from previous form
+$appTime = $_POST["appTime"]; // radio button selection from previous form
 ?>
 
 <html lang="en">
@@ -20,18 +20,25 @@ $_SESSION["appTime"] = $_POST["appTime"]; // radio button selection from previou
 			include('CommonMethods.php');
 			$COMMON = new Common($debug);
 			
-			$firstn = $_SESSION["firstN"]; //Stores first name
-			$lastn = $_SESSION["lastN"]; //Stores last name 
-			$studid = $_SESSION["studID"]; //Stores student ID 
-			$major = $_SESSION["major"]; //Major is stored 
-			$email = $_SESSION["email"]; //stores the students email
+
+			$studid = $_SESSION["studID"]; //Stores student ID
+			
+			$sql = "select * from Proj2Student where `StudentID` like '%$studid%'";
+			$rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
+			$row = mysql_fetch_row($rs);
+			
+			$firstn = $row[1]; //Stores first name
+			$lastn = $row[2]; //Stores last name
+			$major = $row[4]; //Major is stored
+			$email = $row[5]; //stores the students email
+			
+			$sql = "select * from Proj2Appointments where `EnrolledID` like '%$studid%'";
+			$rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
 			
 			//checks whehter the student is try to reschedule their original appointment
-			if($_SESSION["resch"] == true){
-				//if so, it queries for their current appointment
-				$sql = "select * from Proj2Appointments where `EnrolledID` like '%$studid%'";
-				$rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
+			if(mysql_num_rows($rs) != 0){
 				$row = mysql_fetch_row($rs);
+				//if so, it queries for their current appointment
 				$oldAdvisorID = $row[2];
 				$oldDatephp = strtotime($row[1]);
 				
