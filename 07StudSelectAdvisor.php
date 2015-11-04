@@ -21,6 +21,7 @@ $COMMON = new Common($debug);
 		<form action="08StudSelectTime.php" method="post" name="SelectAdvisor">
 	    <?php
 	    	//query to get all advisors and allow the user to select an advisor.
+	    	/////////
 			$sql = "select * from Proj2Advisors";
 			$rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
 			while($row = mysql_fetch_row($rs)){
