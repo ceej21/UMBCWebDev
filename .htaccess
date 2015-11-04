@@ -1,0 +1,12 @@
+#Order deny,allow
+#Allow from 130.85.*.*
+#Allow from 108.8.*.*
+#DirectoryIndex index.php
+#deny from all  -- only if you REALLY want it down!!
+
+# This would probably be possible for you to do by using some advanced ".htaccess" rules to restrict 
+# access by IP address. For UMBC, the IP's to restrict to would be "130.85.*.*".
+
+
+# enables PHP sessions
+php_value session.save_path /afs/umbc.edu/public/web/sites/coeadvising/prod/php/session
