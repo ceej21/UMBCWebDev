@@ -18,12 +18,24 @@ $COMMON = new Common($debug);
 		<h1>Cancel Appointment</h1>
 	    <div class="field">
 	    <?php
+	    		$studid = $_SESSION["studID"]; //store the students ID
+	    
+	    		$sql = "select * from Proj2Students where `StudentID` like '%$studid%'";
+	    		$rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
+	    		$row = mysql_fetch_row($rs);
+	    		
+	    		$firstn = $row[1]; //store the students first name
+			$lastn = $row[2]; //store the students last name
+		//	$studid = $row[3]; //store the students ID
+			$major = $row[5]; //store the students major
+			$email = $row[4]; //store the students email
+	    		/*
 			$firstn = $_SESSION["firstN"]; //store the students first name
 			$lastn = $_SESSION["lastN"]; //store the students last name
 			$studid = $_SESSION["studID"]; //store the students ID
 			$major = $_SESSION["major"]; //store the students major
 			$email = $_SESSION["email"]; //store the students email
-			
+			*/
 			$sql = "select * from Proj2Appointments where `EnrolledID` like '%$studid%'";
 			$rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
 			$row = mysql_fetch_row($rs);
