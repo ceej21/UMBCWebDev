@@ -71,7 +71,7 @@ $advisorName = $row[1]." ".$row[2];
 			while($row = mysql_fetch_row($rs)){
 				$datephp = strtotime($row[1]);
 				echo "<label for='",$row[0],"'>";
-				echo "<input id='",$row[0],"' type='radio' name='appTime' required value='", $row[1], "'>", date('l, F d, Y g:i A', $datephp) ,"</label><br>\n";
+				echo "<input id='",$row[0],"' type='radio' name='appId' required value='", $row[0], "'>", date('l, F d, Y g:i A', $datephp) ,"</label><br>\n";
 			}
 		?>
         </div>
