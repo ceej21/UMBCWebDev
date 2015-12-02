@@ -1,6 +1,6 @@
 <?php
 session_start();
-$appTime = $_POST["appTime"]; // radio button selection from previous form
+$appId = $_POST["appId"]; // radio button selection from previous form
 ?>
 
 <html lang="en">
@@ -65,11 +65,13 @@ $appTime = $_POST["appTime"]; // radio button selection from previous form
 				echo "Location: ", $oldLocation,"</label><br>";
 			}
 			
-			
+			$sql = "select * from Proj2Appointments where `id` = '$appId'";
+			$rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
+			$row = mysql_fetch_row($rs);
 			
 			$currentAdvisorName; //stores the new advisors name
-			$currentAdvisorID = $_SESSION["advisor"]; //stores the new advisor's id
-			$currentDatephp = strtotime($_SESSION["appTime"]); //get the time of the appointment
+			$currentAdvisorID = $row[2]; //stores the new advisor's id
+			$currentDatephp = strtotime($row[1]); //get the time of the appointment
 			//checks if the appointment is a group appointmnet
 			if($currentAdvisorID != 0){
 				//if not get the data for that advisor
