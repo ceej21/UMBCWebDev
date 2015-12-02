@@ -28,12 +28,19 @@ $COMMON = new Common($debug);
 				$times = $_POST["time"]; //stores the times of the search
 				$advisor = $_POST["advisor"]; //stores the advisor of the search
 				$results = array();
+				$studid = $_SESSION["studID"]; //Stores student ID
+					
+				$sql = "select * from Proj2Student where `StudentID` like '%$studid%'";
+				$rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
+				$row = mysql_fetch_row($rs);
+				
+				$major = $row[4]; //Major is stored
 				//set the major to the name that will be stored in the advisor table
-				if($_SESSION["major"] == 'ENGR'){$major = 'Engineering Undecided' ;}
-				if($_SESSION["major"] == 'MENG'){$major = 'Mechanical Engineering';}
-				if($_SESSION["major"] == 'CMSC'){$major = 'Computer Science';}
-				if($_SESSION["major"] == 'CMPE'){$major = 'Computer Engineering';}
-				if($_SESSION["major"] == 'CENG'){$major = 'Chemical Engineering';}
+				if($major == 'ENGR'){$major = 'Engineering Undecided' ;}
+				if($major == 'MENG'){$major = 'Mechanical Engineering';}
+				if($major == 'CMSC'){$major = 'Computer Science';}
+				if($major == 'CMPE'){$major = 'Computer Engineering';}
+				if($major == 'CENG'){$major = 'Chemical Engineering';}
 				
 				//check if the date is not all, and print the date
 				if($date == ''){ echo "Date: All"; }
