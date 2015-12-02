@@ -4,10 +4,10 @@ $debug = false;
 
 //check if an advisor was posted
 if(isset($_POST["advisor"])){
-	$_SESSION["advisor"] = $_POST["advisor"];
+	//$_POST["advisor"] = $_POST["advisor"];
 }
 
-$localAdvisor = $_SESSION["advisor"]; //stores the advisor
+$localAdvisor = $_POST["advisor"]; //stores the advisor
 //set $localMaj to the major that is seen.
 if($_SESSION["major"] == 'ENGR'){$localMaj = 'Engineering Undecided' ;}
 if($_SESSION["major"] == 'MENG'){$localMaj = 'Mechanical Engineering';}
@@ -47,7 +47,7 @@ $advisorName = $row[1]." ".$row[2];
 			$curtime = time();
 			
 			//checks if it is a group appointment and determines what to do based on that info
-			if ($_SESSION["advisor"] != 0)  // for individual conferences only
+			if ($_POST["advisor"] != 0)  // for individual conferences only
 			{ 
 				//if not a group get the all of the appointment times for the advisor that are available
 				$sql = "select * from Proj2Appointments where $temp `EnrolledNum` = 0 

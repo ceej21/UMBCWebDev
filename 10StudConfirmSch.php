@@ -65,6 +65,8 @@ $appTime = $_POST["appTime"]; // radio button selection from previous form
 				echo "Location: ", $oldLocation,"</label><br>";
 			}
 			
+			
+			
 			$currentAdvisorName; //stores the new advisors name
 			$currentAdvisorID = $_SESSION["advisor"]; //stores the new advisor's id
 			$currentDatephp = strtotime($_SESSION["appTime"]); //get the time of the appointment
