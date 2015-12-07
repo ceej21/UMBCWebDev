@@ -12,7 +12,7 @@ $localAdvisor = $_POST["advisor"]; //stores the advisor
 $sql = "select * from Proj2Students where `StudentID` like '%$studid%'";
 $rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
 $row = mysql_fetch_row($rs);
-$studentMajor=$row[5];
+$localMaj=$row[5];
 /*
 if($_SESSION["major"] == 'ENGR'){$localMaj = 'Engineering Undecided' ;}
 if($_SESSION["major"] == 'MENG'){$localMaj = 'Mechanical Engineering';}
