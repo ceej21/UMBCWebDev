@@ -27,6 +27,7 @@
 			$last = $_SESSION["AdvL"];
 			$user = $_SESSION["AdvUN"];
 			$pass = $_SESSION["AdvPW"];
+			$office = $_SESSION["Office"];
 			$location = $_SESSION["Location"];
 
 			include('CommonMethods.php');
@@ -42,8 +43,8 @@
       }
       //if not insert the new advisor into the table
       else{
-  			$sql = "INSERT INTO `Proj2Advisors`(`FirstName`, `LastName`, `Location`, `Username`, `Password`) 
-  			VALUES ('$first', '$last','$location'  ,'$user', '$pass')";
+  			$sql = "INSERT INTO `Proj2Advisors`(`FirstName`, `LastName`, `Office`, Location`, `Username`, `Password`) 
+  			VALUES ('$first', '$last','$office' ,'$location','$user', '$pass')";
         echo ("<h3>$first $last<h3>");
         $rs = $Common->executeQuery($sql, "Advising Appointments");
       }

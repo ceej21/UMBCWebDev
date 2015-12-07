@@ -48,10 +48,12 @@ $COMMON = new Common($debug);
 				$rs2 = $COMMON->executeQuery($sql2, $_SERVER["SCRIPT_NAME"]);
 				$row2 = mysql_fetch_row($rs2);					
 				$oldAdvisorName = $row2[1] . " " . $row2[2];
-				$oldLocation = $row2[3];
+				$oldOffice = $row2[3];
+				$oldLocation = $row2[4];
 			}
 			else{
 				$oldAdvisorName = "Group";
+				$oldOffice = "None";
 				$oldLocation = "ITE 201B";
 			}
 			
@@ -59,6 +61,7 @@ $COMMON = new Common($debug);
 			echo "<label for='info'>";
 			echo "Advisor: ", $oldAdvisorName, "<br>";
 			echo "Appointment: ", date('l, F d, Y g:i A', $oldDatephp), "<br>";
+			echo "Office: ", $oldOffice, "<br>";
 			echo "Location: ", $oldLocation, "</label><br>"
 		?>		
         </div>

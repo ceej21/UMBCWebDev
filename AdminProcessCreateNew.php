@@ -6,6 +6,7 @@ $_SESSION["AdvF"] = $_POST["firstN"];
 $_SESSION["AdvL"] = $_POST["lastN"];
 $_SESSION["AdvUN"] = $_POST["UserN"];
 $_SESSION["AdvPW"] = $_POST["PassW"];
+$_SESSION["Office"] = $_POST["Office"];
 $_SESSION["Location"] = $_POST["location"];
 $_SESSION["PassCon"] = false;
 

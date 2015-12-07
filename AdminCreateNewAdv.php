@@ -45,7 +45,12 @@ session_start();
 	     	<label for="lastN">Last Name</label>
 	      	<input id="lastN" size="20" maxlength="50" type="text" name="lastN" required>
 	   	</div>	
-	   		
+	   	
+	   	<div class="field">
+	   		<label for="location">Office</label>
+	   		<input id="location" size="20" maxlength="50" type="text" name="office" required>
+	   	</div>
+	   	
 	   	<div class="field">
 	   		<label for="location">Location</label>
 	   		<input id="location" size="20" maxlength="50" type="text" name="location" required>

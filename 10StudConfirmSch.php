@@ -50,7 +50,8 @@ $_SESSION['appTime'] = $_POST["apptime"]; // radio button selection from previou
 					$rs2 = $COMMON->executeQuery($sql2, $_SERVER["SCRIPT_NAME"]);
 					$row2 = mysql_fetch_row($rs2);
 					$oldAdvisorName = $row2[1] . " " . $row2[2];
-					$oldLocation = $row2[3];
+					$oldOffice = $row2[3];
+					$oldLocation = $row2[4];
 				}
 				else{
 					//otherwise the standard group name and location are printed
@@ -63,6 +64,7 @@ $_SESSION['appTime'] = $_POST["apptime"]; // radio button selection from previou
 				echo "<label for='info'>";
 				echo "Advisor: ", $oldAdvisorName, "<br>";
 				echo "Appointment: ", date('l, F d, Y g:i A', $oldDatephp), "<br>";
+				echo "Office: ", $oldOffice, "<br>";
 				echo "Location: ", $oldLocation,"</label><br>";
 			}
 			
@@ -76,7 +78,8 @@ $_SESSION['appTime'] = $_POST["apptime"]; // radio button selection from previou
 				$rs2 = $COMMON->executeQuery($sql2, $_SERVER["SCRIPT_NAME"]);
 				$row2 = mysql_fetch_row($rs2);
 				$currentAdvisorName = $row2[1] . " " . $row2[2];
-				$location = $row2[3];
+				$office = $row2[3];
+				$location = $row2[4];
 			}
 			else{
 				//otherwise use the defualt group information
@@ -89,6 +92,7 @@ $_SESSION['appTime'] = $_POST["apptime"]; // radio button selection from previou
 			echo "<label for='newinfo'>";
 			echo "Advisor: ",$currentAdvisorName,"<br>";
 			echo "Appointment: ",date('l, F d, Y g:i A', $currentDatephp),"<br>";
+			echo "Office: ", $office, "<br>";
 			echo "Location: ", $location,"</label>";
 			
 		?>
