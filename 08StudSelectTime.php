@@ -17,6 +17,12 @@ $rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
 $row = mysql_fetch_row($rs);
 $localMaj=$row[5];
 
+if($localMaj == 'ENGR'){$localMaj = 'Engineering Undecided' ;}
+if($localMaj == 'MENG'){$localMaj = 'Mechanical Engineering';}
+if($localMaj == 'CMSC'){$localMaj = 'Computer Science';}
+if($localMaj == 'CMPE'){$localMaj = 'Computer Engineering';}
+if($localMaj == 'CENG'){$localMaj = 'Chemical Engineering';}
+
 //query for $localAdvisor's information
 $sql = "select * from Proj2Advisors where `id` = '$localAdvisor'";
 $rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);

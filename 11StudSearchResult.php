@@ -30,7 +30,7 @@ $COMMON = new Common($debug);
 				$results = array();
 				$studid = $_SESSION["studID"]; //Stores student ID
 					
-				$sql = "select * from Proj2Student where `StudentID` like '%$studid%'";
+				$sql = "select * from Proj2Students where `StudentID` like '%$studid%'";
 				$rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
 				$row = mysql_fetch_row($rs);
 				

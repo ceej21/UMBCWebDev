@@ -72,6 +72,7 @@ $appId = $_POST["appId"]; // radio button selection from previous form
 			$currentAdvisorName; //stores the new advisors name
 			$currentAdvisorID = $row[2]; //stores the new advisor's id
 			$currentDatephp = strtotime($row[1]); //get the time of the appointment
+			$_SESSION['appTime'] = $row[1];
 			//checks if the appointment is a group appointmnet
 			if($currentAdvisorID != 0){
 				//if not get the data for that advisor

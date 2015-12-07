@@ -24,12 +24,24 @@ $COMMON = new Common($debug);
 		<?php
 		$apptime = $_SESSION["appTime"]; //stores the attempted appoitment time
 		$localAdvisor = $_SESSION["advisor"]; //stores the advisorID
+		
+		$studid = $_SESSION["studId"];
+		
+		$sql = "select * from Proj2Students where `StudentID` like '%$studid%'";
+		$rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
+		$row = mysql_fetch_row($rs);
+		
+		$firstn = $row[1]; //Stores first name
+		$lastn = $row[2]; //Stores last name
+		$localMajaj = $row[4]; //Major is stored
+		$email = $row[5]; //stores the students email
+		
 		//determine what major to store based on the session major
-		if($_SESSION["major"] == 'ENGR'){$localMaj = 'Engineering Undecided' ;}
-		if($_SESSION["major"] == 'MENG'){$localMaj = 'Mechanical Engineering';}
-		if($_SESSION["major"] == 'CMSC'){$localMaj = 'Computer Science';}
-		if($_SESSION["major"] == 'CMPE'){$localMaj = 'Computer Engineering';}
-		if($_SESSION["major"] == 'CENG'){$localMaj = 'Chemical Engineering';}
+		if($localMaj == 'ENGR'){$localMaj = 'Engineering Undecided' ;}
+		if($localMaj == 'MENG'){$localMaj = 'Mechanical Engineering';}
+		if($localMaj == 'CMSC'){$localMaj = 'Computer Science';}
+		if($localMaj == 'CMPE'){$localMaj = 'Computer Engineering';}
+		if($localMaj == 'CENG'){$localMaj = 'Chemical Engineering';}
 		
 		//gets the row associated the the student's advisor
 		$sql = "select * from Proj2Advisors where `id` = '$localAdvisor'";
