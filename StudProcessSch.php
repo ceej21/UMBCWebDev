@@ -9,12 +9,16 @@ if($_POST["finish"] == 'Cancel'){
 	$_SESSION["status"] = "none";
 }
 else{
-	//store session variable locally
-	$firstn = $_SESSION["firstN"];
-	$lastn = $_SESSION["lastN"];
 	$studid = $_SESSION["studID"];
-	$major = $_SESSION["major"];
-	$email = $_SESSION["email"];
+	
+	$sql = "select * from Proj2Students where `StudentID` like '%$studid%'";
+	$rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
+	$row = mysql_fetch_row($rs);
+			
+	$firstn = $row[1]; //Stores first name
+	$lastn = $row[2]; //Stores last name
+	$major = $row[4]; //Major is stored
+	$email = $row[5]; //stores the students email
 	$advisor = $_SESSION["advisor"];
 
 	if($debug) { echo("Advisor -> $advisor<br>\n"); }

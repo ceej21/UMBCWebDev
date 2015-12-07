@@ -26,11 +26,11 @@ $appId = $_POST["appId"]; // radio button selection from previous form
 			$sql = "select * from Proj2Students where `StudentID` like '%$studid%'";
 			$rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
 			$row = mysql_fetch_row($rs);
-			
+				
 			$firstn = $row[1]; //Stores first name
 			$lastn = $row[2]; //Stores last name
 			$major = $row[4]; //Major is stored
-			$email = $row[5]; //stores the students email
+			$email = $row[5]; //stores the students email	
 			
 			$sql = "select * from Proj2Appointments where `EnrolledID` like '%$studid%'";
 			$rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);

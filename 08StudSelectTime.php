@@ -2,9 +2,12 @@
 session_start();
 $debug = false;
 
+include('CommonMethods.php');
+$COMMON = new Common($debug);
+
 //check if an advisor was posted
-if(isset($_POST["advisor"])){
-	//$_POST["advisor"] = $_POST["advisor"];
+if(isset($_SESSION["advisor"])){
+	$_SESSION["advisor"] = $_POST["advisor"];
 }
 $studid = $_SESSION["studID"]; //store the students ID
 $localAdvisor = $_POST["advisor"]; //stores the advisor
@@ -13,17 +16,6 @@ $sql = "select * from Proj2Students where `StudentID` like '%$studid%'";
 $rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
 $row = mysql_fetch_row($rs);
 $localMaj=$row[5];
-/*
-if($_SESSION["major"] == 'ENGR'){$localMaj = 'Engineering Undecided' ;}
-if($_SESSION["major"] == 'MENG'){$localMaj = 'Mechanical Engineering';}
-if($_SESSION["major"] == 'CMSC'){$localMaj = 'Computer Science';}
-if($_SESSION["major"] == 'CMPE'){$localMaj = 'Computer Engineering';}
-if($_SESSION["major"] == 'CENG'){$localMaj = 'Chemical Engineering';}
-*/
-
-
-include('CommonMethods.php');
-$COMMON = new Common($debug);
 
 //query for $localAdvisor's information
 $sql = "select * from Proj2Advisors where `id` = '$localAdvisor'";
