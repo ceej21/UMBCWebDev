@@ -1,12 +1,12 @@
-html{ 
+html{
       background-color: 
-      #99CCFF; 
+      #000000;
       font-family: Arial; 
-      font-size: 13px; 
+      font-size: 60px; 
       position: relative; 
       }
 
-      body{ 
+      body{
       margin: 0; 
       padding: 0; 
       }
@@ -22,30 +22,30 @@ html{
 
       #login{ 
       color: #000; 
-      background-color: #fff; 
+      background-color: #FFFF66; 
       margin: 100px auto 0; 
       padding: 20px 20px 20px; 
       position: relative; 
-      width: 600px; 
+      width: 850px; 
       -webkit-border-radius: 8px; 
       -moz-border-radius: 8px; 
       border-radius: 8px; 
       }
 
-	h1{ 
+      h1{ 
       font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; 
-      font-size: 36px; 
-	  text-align: center;
+      font-size: 34px; 
+        text-align: center;
       line-height: 50px; 
       margin: 0; 
       padding: 0; 
       }
-	  
+        
       h2{ 
       font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; 
-      font-size: 24px; 
-	  text-align: center;
-      line-height: 30px; 
+      font-size: 40px; 
+        text-align: center;
+      line-height: 75px; 
       margin: 0; 
       padding: 0; 
       }
@@ -64,28 +64,29 @@ html{
         border: 1px solid #999;
         color: #444;
         font-family: Arial, Helvetica, sans-serif;
-        font-size: 20px;
-        line-height: 16px;
+        font-size: 23px;
+        line-height: 20px;
         padding: 4px;
         -moz-border-radius: 4px;
         -webkit-border-radius: 4px;
         width: 262px;
       }
-	  
+        
 	  select{
-	  font-size: 18px;
-	  font-family: Arial, Helvetica, sans-serif;
-	  color: #444;
-	  position: relative;
-	  }
+	    font-size: 18px;
+	      font-family: Arial, Helvetica, sans-serif;
+	        color: #444;
+		  position: relative;
+		    }
       
       .button {
-        background-color: #768089;
+        background-color: black;
         border: none;
+	border-color: black;
         color: #fff;
         cursor: pointer;
         display: inline-block;
-        font-size: 11px;
+        font-size: 13px;
         font-weight: bold;
         height: 25px;
         overflow: visible;
@@ -113,19 +114,20 @@ html{
       }
       
       .button.large {
-        font-size: 16px;
-        height: 32px;
+        font-size: 18px;
+        height: 50px;
+	width: 275px;
         padding: 0 16px;
-		position: center;
+		 position: center;
       }
       
       .button.go {
-        background-color: #66AA44;
+        background-color: #E00000;
         color: #FFF;
       }
       
       .button.go:hover {
-        background-color: #70B74E;
+        background-color: #87929D;
         color: #FFF;
       }
        
@@ -136,9 +138,9 @@ html{
       .field label{ 
       display: block; 
       font-weight: bold; 
-      font-size: 14px; 
+      font-size: 20px; 
       }
-	  
+        
       .actions{ 
       text-align: right; 
       }
@@ -182,3 +184,4 @@ html{
         input[type="text"],input[type="password"], textarea { width: 96%; padding: 2% 2%; }
         .button-item { margin: 8px 8px 12px; }
       }
+
