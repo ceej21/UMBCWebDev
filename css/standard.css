@@ -50,6 +50,22 @@ html{
       padding: 0; 
       }
 
+      footer{
+      font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+      font-size: 15px;
+      margin: 0;
+      padding: 0;
+      }
+      
+      h3{
+      font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; 
+      font-size: 13px; 
+      text-align: right;
+      line-height: 50px; 
+      margin: 0; 
+      padding: 0; 
+      } 
+
       ul{ 
       margin: 8px 20px; 
       padding: 0; 
