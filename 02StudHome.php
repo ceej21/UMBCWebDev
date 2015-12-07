@@ -17,7 +17,16 @@ $COMMON = new Common($debug);
         <div class="top">
 		<h2>Hello 
 		<?php
-			echo $_SESSION["firstN"];
+			//echo $_SESSION["firstN"];
+			$studid = $_SESSION["studID"]; //stores student id
+ 
+			$sql = "select * from Proj2Students where `StudentID` like '%$studid%'";
+			$rs = $COMMON->exectureQuery($sql, $_SERVER["SCRIPT_NAME"]);
+			$row = mysql_fetch_row($rs);
+
+			$firstn = $row[1];
+			echo $firstn;
+
 		?>
         </h2>
 	    <div class="selections">
