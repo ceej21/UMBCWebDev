@@ -7,11 +7,16 @@ $COMMON = new Common($debug);
 //check if the student want to cancel their appointment
 if($_POST["cancel"] == 'Cancel'){
 	//store all session variables locally
-	$firstn = $_SESSION["firstN"];
-	$lastn = $_SESSION["lastN"];
-	$studid = $_SESSION["studID"];
-	$major = $_SESSION["major"];
-	$email = $_SESSION["email"];
+	$studid = $_SESSION["studID"]; //store the students ID
+	    
+	$sql = "select * from Proj2Students where `StudentID` like '%$studid%'";
+	$rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
+	$row = mysql_fetch_row($rs);
+	    		
+	$firstn = $row[1]; //store the students first name
+	$lastn = $row[2]; //store the students last name
+	$major = $row[5]; //store the students major
+	$email = $row[4]; //store the students email
 	
 	//remove stud from EnrolledID
 	$sql = "select * from Proj2Appointments where `EnrolledID` like '%$studid%'";

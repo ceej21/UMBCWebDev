@@ -1,6 +1,7 @@
 <html>
 <footer>
 <ul>
+
 <li><a href="02StudHome.php">Home</a></li>
 
 <li><a href="http://coeit.umbc.edu">About COEIT</a></li>
