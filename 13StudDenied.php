@@ -1,6 +1,6 @@
 <?php
 session_start();
-$debug = false;
+$debug =true;
 include('CommonMethods.php');
 $COMMON = new Common($debug);
 ?>
@@ -33,8 +33,8 @@ $COMMON = new Common($debug);
 		
 		$firstn = $row[1]; //Stores first name
 		$lastn = $row[2]; //Stores last name
-		$localMaj = $row[4]; //Major is stored
-		$email = $row[5]; //stores the students email
+		$localMaj = $row[5]; //Major is stored
+		$email = $row[4]; //stores the students email
 		
 		//determine what major to store based on the session major
 		if($localMaj == 'ENGR'){$localMaj = 'Engineering Undecided' ;}
@@ -53,7 +53,7 @@ $COMMON = new Common($debug);
 		if ($_SESSION["advisor"] != 0)  // for individual conferences only
 		{
 			//queries for the next appointment time after the current apptime for an
-			$sql = "select * from Proj2Appointments where $temp `EnrolledNum` = 0
+			$sql = "select * from Proj2Appointments where `EnrolledNum` = 0
 			and (`Major` like '%$localMaj%' or `Major` = '') and `Time` > '".$apptime."' and `AdvisorID` = ".$localAdvisor."
 							order by `Time` ASC limit 30";
 			$rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
@@ -73,7 +73,7 @@ $COMMON = new Common($debug);
 		$row = mysql_fetch_row($rs);
 		$datephp = strtotime($row[1]);
 		echo "<label for='",$row[0],"'>";
-		echo "<input id='",$row[0],"' type='radio' name='appTime' required value='", $row[0], "'>", date('l, F d, Y g:i A', $datephp) ,"</label><br>\n";
+		echo "<input id='",$row[0],"' type='radio' name='apptime' required value='", $row[1], "'>", date('l, F d, Y g:i A', $datephp) ,"</label><br>\n";
 		?>
 		<div class="nextButton">
 		<?php

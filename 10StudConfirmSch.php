@@ -30,8 +30,8 @@ $_SESSION['appTime'] = $_POST["apptime"]; // radio button selection from previou
 				
 			$firstn = $row[1]; //Stores first name
 			$lastn = $row[2]; //Stores last name
-			$major = $row[4]; //Major is stored
-			$email = $row[5]; //stores the students email	
+			$major = $row[5]; //Major is stored
+			$email = $row[4]; //stores the students email	
 			
 			$sql = "select * from Proj2Appointments where `EnrolledID` like '%$studid%'";
 			$rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);

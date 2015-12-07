@@ -17,7 +17,7 @@ else{
 			
 	$firstn = $row[1]; //Stores first name
 	$lastn = $row[2]; //Stores last name
-	$major = $row[4]; //Major is stored
+	$major = $row[5]; //Major is stored
 	
 	if($major == 'ENGR'){$major = 'Engineering Undecided' ;}
 	if($major == 'MENG'){$major = 'Mechanical Engineering';}

@@ -34,7 +34,7 @@ $COMMON = new Common($debug);
 				$rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
 				$row = mysql_fetch_row($rs);
 				
-				$major = $row[4]; //Major is stored
+				$major = $row[5]; //Major is stored
 				//set the major to the name that will be stored in the advisor table
 				if($major == 'ENGR'){$major = 'Engineering Undecided' ;}
 				if($major == 'MENG'){$major = 'Mechanical Engineering';}
