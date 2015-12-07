@@ -18,6 +18,13 @@ else{
 	$firstn = $row[1]; //Stores first name
 	$lastn = $row[2]; //Stores last name
 	$major = $row[4]; //Major is stored
+	
+	if($major == 'ENGR'){$major = 'Engineering Undecided' ;}
+	if($major == 'MENG'){$major = 'Mechanical Engineering';}
+	if($major == 'CMSC'){$major = 'Computer Science';}
+	if($major == 'CMPE'){$major = 'Computer Engineering';}
+	if($major == 'CENG'){$major = 'Chemical Engineering';}
+	
 	$email = $row[5]; //stores the students email
 	$advisor = $_SESSION["advisor"];
 
@@ -113,7 +120,7 @@ function isStillAvailable($apptime, $advisor)
 	// advisor could be "Group"
 	global $debug; global $COMMON;
 	$sql = "";
-
+	
 	if($advisor == "Group")
 	{ $sql = "select `EnrolledNum`, `Max` from `Proj2Appointments` where `Time` = '$apptime' and `AdvisorID` = 0";  }
 	else // then specific

@@ -1,12 +1,12 @@
 <?php
 session_start();
 $debug = false;
-
+	
 include('CommonMethods.php');
 $COMMON = new Common($debug);
 
 //check if an advisor was posted
-if(isset($_SESSION["advisor"])){
+if(isset($_POST["advisor"])){
 	$_SESSION["advisor"] = $_POST["advisor"];
 }
 $studid = $_SESSION["studID"]; //store the students ID
@@ -76,7 +76,7 @@ $advisorName = $row[1]." ".$row[2];
 			while($row = mysql_fetch_row($rs)){
 				$datephp = strtotime($row[1]);
 				echo "<label for='",$row[0],"'>";
-				echo "<input id='",$row[0],"' type='radio' name='appId' required value='", $row[0], "'>", date('l, F d, Y g:i A', $datephp) ,"</label><br>\n";
+				echo "<input id='",$row[0],"' type='radio' name='apptime' required value='", $row[1], "'>", date('l, F d, Y g:i A', $datephp) ,"</label><br>\n";
 			}
 		?>
         </div>

@@ -1,6 +1,7 @@
 <?php
 session_start();
-$appId = $_POST["appId"]; // radio button selection from previous form
+
+$_SESSION['appTime'] = $_POST["apptime"]; // radio button selection from previous form
 ?>
 
 <html lang="en">
@@ -34,9 +35,9 @@ $appId = $_POST["appId"]; // radio button selection from previous form
 			
 			$sql = "select * from Proj2Appointments where `EnrolledID` like '%$studid%'";
 			$rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
-			
 			//checks whehter the student is try to reschedule their original appointment
 			if(mysql_num_rows($rs) != 0){
+				$_SESSION["resch"] = true;
 				$row = mysql_fetch_row($rs);
 				//if so, it queries for their current appointment
 				$oldAdvisorID = $row[2];
@@ -65,14 +66,9 @@ $appId = $_POST["appId"]; // radio button selection from previous form
 				echo "Location: ", $oldLocation,"</label><br>";
 			}
 			
-			$sql = "select * from Proj2Appointments where `id` = '$appId'";
-			$rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
-			$row = mysql_fetch_row($rs);
-			
 			$currentAdvisorName; //stores the new advisors name
 			$currentAdvisorID = $row[2]; //stores the new advisor's id
-			$currentDatephp = strtotime($row[1]); //get the time of the appointment
-			$_SESSION['appTime'] = $row[1];
+			$currentDatephp = strtotime($_SESSION["appTime"]); //get the time of the appointment
 			//checks if the appointment is a group appointmnet
 			if($currentAdvisorID != 0){
 				//if not get the data for that advisor

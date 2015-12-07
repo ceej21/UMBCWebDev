@@ -33,7 +33,7 @@ $COMMON = new Common($debug);
 		
 		$firstn = $row[1]; //Stores first name
 		$lastn = $row[2]; //Stores last name
-		$localMajaj = $row[4]; //Major is stored
+		$localMaj = $row[4]; //Major is stored
 		$email = $row[5]; //stores the students email
 		
 		//determine what major to store based on the session major
@@ -73,7 +73,7 @@ $COMMON = new Common($debug);
 		$row = mysql_fetch_row($rs);
 		$datephp = strtotime($row[1]);
 		echo "<label for='",$row[0],"'>";
-		echo "<input id='",$row[0],"' type='radio' name='appTime' required value='", $row[1], "'>", date('l, F d, Y g:i A', $datephp) ,"</label><br>\n";
+		echo "<input id='",$row[0],"' type='radio' name='appTime' required value='", $row[0], "'>", date('l, F d, Y g:i A', $datephp) ,"</label><br>\n";
 		?>
 		<div class="nextButton">
 		<?php
