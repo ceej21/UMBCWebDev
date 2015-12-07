@@ -23,8 +23,7 @@ $COMMON = new Common($debug);
 			$sql = "select * from Proj2Students where `StudentID` like '%$studid%'";
 			$rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
 			$row = mysql_fetch_row($rs);
-
-			$firstn = $row[1];
+			$firstn = $row[1];			
 			echo $firstn;
 
 		?>
@@ -33,28 +32,19 @@ $COMMON = new Common($debug);
 		<form action="StudProcessHome.php" method="post" name="Home">
 	    <?php
 			
-			$_SESSION["studExist"] = false; //stores whether the studExist
 			$adminCancel = false; //stores whether or not the an admin cancelled an appointment
 			$noApp = false; //stores if there is an appointment
 			$studid = $_SESSION["studID"]; //stores the students ID
-
-			$sql = "select * from Proj2Students where `StudentID` = '$studid'";
-			$rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
-			$row = mysql_fetch_row($rs);
 			
-			//Since the row is not empty, the student exists
-			if (!empty($row)){
-				$_SESSION["studExist"] = true;
-				//checks if the admin canceled their appointment
-				if($row[6] == 'C'){
-					$adminCancel = true;
-				}
-				if($row[6] == 'N'){
-					$noApp = true;
-				}
+			//checks if the admin canceled their appointment
+			if($row[6] == 'C'){
+				$adminCancel = true;
+			}
+			if($row[6] == 'N'){
+				$noApp = true;
 			}
 			//check whether the admin cancelled an appointment, student exist or if there is no appointment
-			if ($_SESSION["studExist"] == false || $adminCancel == true || $noApp == true){
+			if ($adminCancel == true || $noApp == true){
 				//tells the student that their appointment was cancelled
 				if($adminCancel == true){
 					echo "<p style='color:red'>The advisor has cancelled your appointment! Please schedule a new appointment.</p>";

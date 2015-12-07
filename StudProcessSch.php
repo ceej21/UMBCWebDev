@@ -9,12 +9,21 @@ if($_POST["finish"] == 'Cancel'){
 	$_SESSION["status"] = "none";
 }
 else{
+	
+			
+	$advisor = $_SESSION["advisor"];
+
+	if($debug) { echo("Advisor -> $advisor<br>\n"); }
+
+	
+	$apptime = $_SESSION["appTime"];
+	
 	$studid = $_SESSION["studID"];
 	
 	$sql = "select * from Proj2Students where `StudentID` like '%$studid%'";
 	$rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
-	$row = mysql_fetch_row($rs);
-			
+	
+	//make sure the student exists otherwise add them to the students table
 	$firstn = $row[1]; //Stores first name
 	$lastn = $row[2]; //Stores last name
 	$major = $row[5]; //Major is stored
@@ -26,15 +35,8 @@ else{
 	if($major == 'CENG'){$major = 'Chemical Engineering';}
 	
 	$email = $row[5]; //stores the students email
-	$advisor = $_SESSION["advisor"];
-
-	if($debug) { echo("Advisor -> $advisor<br>\n"); }
-
-	//make sure the student exists otherwise add them to the students table
-	$apptime = $_SESSION["appTime"];
-	if($_SESSION["studExist"] == false){
-		$sql = "insert into Proj2Students (`FirstName`,`LastName`,`StudentID`,`Email`,`Major`) values ('$firstn','$lastn','$studid','$email','$major')";
-		$rs = $COMMON->executeQuery($sql, $_SERVER["SCRIPT_NAME"]);
+	{
+		
 	}
 
 
