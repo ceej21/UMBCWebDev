@@ -101,6 +101,7 @@ $_SESSION["major"] = $row[5];
 			</div>
 			</div>
 		</form>
+<?php include("footer.php") ?>
   </body>
   
 </html>

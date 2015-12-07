@@ -66,5 +66,6 @@ $studID = $_SESSION["studID"];
 	    </div>
 		</div>
 		</form>
+<?php include("footer.php") ?>
   </body>
 </html>

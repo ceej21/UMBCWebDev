@@ -39,5 +39,6 @@ $COMMON = new Common($debug);
 		<input type="submit" name="home" class="button large" value="Cancel">
 		</form>
 		</div>
+<?php include("footer.php") ?>
   </body>
 </html>

@@ -110,5 +110,6 @@ $_SESSION['appTime'] = $_POST["apptime"]; // radio button selection from previou
 	    </div>
 		</form>
 		</div>
+<?php include("footer.php") ?>
   </body>
 </html>
