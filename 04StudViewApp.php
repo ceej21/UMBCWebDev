@@ -38,7 +38,8 @@ $studID = $_SESSION["studID"];
 					$rs2 = $COMMON->executeQuery($sql2, $_SERVER["SCRIPT_NAME"]);
 					$row2 = mysql_fetch_row($rs2);
 					$advisorName = $row2[1] . " " . $row2[2];
-					$location = $row2[3];
+					$office = $row2[3];
+					$location = $row2[4];
 				}
 				//other wise just print standard group info
 				else{
@@ -49,6 +50,7 @@ $studID = $_SESSION["studID"];
 				echo "<label for='info'>";
 				echo "Advisor: ", $advisorName, "<br>";
 				echo "Appointment: ", date('l, F d, Y g:i A', $datephp), "<br>";
+				echo "Office: ", $office, "<br>";
 				echo "Location: ", $location, "</label>";
 			}
 			else // something is up, and there DB table needs to be fixed
