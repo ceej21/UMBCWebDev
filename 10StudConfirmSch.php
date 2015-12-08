@@ -50,8 +50,8 @@ $_SESSION['appTime'] = $_POST["apptime"]; // radio button selection from previou
 					$rs2 = $COMMON->executeQuery($sql2, $_SERVER["SCRIPT_NAME"]);
 					$row2 = mysql_fetch_row($rs2);
 					$oldAdvisorName = $row2[1] . " " . $row2[2];
-					$oldOffice = $row2[3];
-					$oldLocation = $row2[4];
+					$oldOffice = $row2[5];
+					$oldLocation = $row2[3];
 				}
 				else{
 					//otherwise the standard group name and location are printed
@@ -78,8 +78,8 @@ $_SESSION['appTime'] = $_POST["apptime"]; // radio button selection from previou
 				$rs2 = $COMMON->executeQuery($sql2, $_SERVER["SCRIPT_NAME"]);
 				$row2 = mysql_fetch_row($rs2);
 				$currentAdvisorName = $row2[1] . " " . $row2[2];
-				$office = $row2[3];
-				$location = $row2[4];
+				$office = $row2[6];
+				$location = $row2[3];
 			}
 			else{
 				//otherwise use the defualt group information

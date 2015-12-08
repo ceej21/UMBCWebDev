@@ -43,8 +43,8 @@
       }
       //if not insert the new advisor into the table
       else{
-  			$sql = "INSERT INTO `Proj2Advisors`(`FirstName`, `LastName`, `Office`, Location`, `Username`, `Password`) 
-  			VALUES ('$first', '$last','$office' ,'$location','$user', '$pass')";
+  			$sql = "INSERT INTO Proj2Advisors (`FirstName`, `LastName`, `Location`, `Username`, `Password`, `Office`) 
+  			VALUES ('$first', '$last','$location','$user', '$pass', '$office')";
         echo ("<h3>$first $last<h3>");
         $rs = $Common->executeQuery($sql, "Advising Appointments");
       }

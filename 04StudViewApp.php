@@ -38,8 +38,8 @@ $studID = $_SESSION["studID"];
 					$rs2 = $COMMON->executeQuery($sql2, $_SERVER["SCRIPT_NAME"]);
 					$row2 = mysql_fetch_row($rs2);
 					$advisorName = $row2[1] . " " . $row2[2];
-					$office = $row2[3];
-					$location = $row2[4];
+					$office = $row2[6];
+					$location = $row2[3];
 				}
 				//other wise just print standard group info
 				else{
