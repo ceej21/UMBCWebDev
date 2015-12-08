@@ -50,7 +50,7 @@ $_SESSION['appTime'] = $_POST["apptime"]; // radio button selection from previou
 					$rs2 = $COMMON->executeQuery($sql2, $_SERVER["SCRIPT_NAME"]);
 					$row2 = mysql_fetch_row($rs2);
 					$oldAdvisorName = $row2[1] . " " . $row2[2];
-					$oldOffice = $row2[5];
+					$oldOffice = $row2[6];
 					$oldLocation = $row2[3];
 				}
 				else{

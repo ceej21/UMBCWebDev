@@ -44,6 +44,7 @@ $studID = $_SESSION["studID"];
 				//other wise just print standard group info
 				else{
 					$advisorName = "Group";
+					$office = "None";
 					$location = 'ITE 201B';
 				}
 			
