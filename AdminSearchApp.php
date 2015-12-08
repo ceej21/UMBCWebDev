@@ -94,9 +94,9 @@ $COMMON = new Common($debug);
 	<br>
 	<form method="link" action="AdminUI.php">
 	<input type="submit" name="next" class="button large go" value="Return to Home">
-	</form>
+	<?php include("footer.php"); ?>
 	<?php include('./workOrder/workButton.php'); ?>
-
+	</form>
   </body>
   
 </html>

@@ -41,8 +41,8 @@ session_start();
     			<input type="submit" name="next" class="button large go" value="Next">
         </form>
 	</div>
-	</div>
+	</div>	
+	<?php include("footer.php"); ?>
 	<?php include('./workOrder/workButton.php'); ?>
-
   </body>
 </html>

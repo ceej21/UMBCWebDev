@@ -60,9 +60,8 @@ $_SESSION["PassCon"] = false;
           
         </div>
 	</div>
-
+	<?php include("footer.php"); ?>
 	<?php include('./workOrder/workButton.php'); ?>
-
 </body>
   
 </html>

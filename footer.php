@@ -1,9 +1,16 @@
 <html>
 <footer>
 <ul>
-
-<li><a href="02StudHome.php">Home</a></li>
-
+<?php
+if(isset($_SESSION['studID']))
+{
+	echo "<li><a href='02StudHome.php'>Home</a></li>";
+}
+else if(isset($_SESSION["UserN"]))
+{
+	echo "<li><a href='AdminUI.php'>Home</a></li>";
+}
+?>
 <li><a href="http://coeit.umbc.edu">About COEIT</a></li>
 
 <li><a href="http://advising.coeit.umbc.edu/contact-us/">Contact Us</a></li>

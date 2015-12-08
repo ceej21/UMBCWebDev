@@ -87,8 +87,8 @@ session_start();
 		<form method="link" action="AdminUI.php" name="home">
 			<input type="submit" name="next" class="button large" value="Cancel">
 		</form>
+		<?php include("footer.php"); ?>
 	<?php include('./workOrder/workButton.php'); ?>
-
 
   </body>
   
